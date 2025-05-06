@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="assets/instagram-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <h2>Instagram</h2>
+            <nav>
+                <div class="main-links">
+                    <a href="#"><i class="fas fa-home"></i> Home</a>
+                    <a href="#"><i class="fas fa-search"></i> Search</a>
+                    <a href="#"><i class="far fa-compass"></i> Explore</a>
+                    <a href="#"><i class="fas fa-film"></i> Reels</a>
+                    <a href="#"><i class="far fa-paper-plane"></i> Messages</a>
+                    <a href="#"><i class="far fa-heart"></i> Notifications</a>
+                    <a href="#"><i class="fas fa-plus-square"></i> Create</a>
+                    <div id="leftProfileSection" style="display: none; align-items: center; gap: 10px; margin-top: 20px;">
+                        <img id="leftProfilePic" src="assets/profile-logo.jpeg" alt="Profile"
+                             style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover;" />
+                        <span>Profile</span>
+                      </div>
+                                            
+                      
+                    <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+
+                <!-- Separated Extra Links -->
+                <div class="extra-links">
+                    <a href="#"><i class="fa-regular fa-circle"></i> Meta AI</a>
+                    <a href="#"><i class="fa-brands fa-threads"></i> Threads</a>
+                    <a href="#"><i class="fa-solid fa-bars"></i> More</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Feed -->
+        <main class="feed">
+            <!-- Stories -->
+            <div class="stories" id="stories">
+                <div class="story">
+                    <img src="assets/Cristiano-Ronaldo-logo.jpg" alt="cristiano" />
+                    <p>cristiano</p>
+                </div>
+                <div class="story">
+                    <img src="assets/fabrizio-romano.jpeg" alt="fabriziorom" />
+                    <p>fabriziorom</p>
+                </div>
+                <div class="story">
+                    <img src="assets/messi.jpeg" alt="leomessi" />
+                    <p>leomessi</p>
+                </div>
+                <div class="story">
+                    <img src="assets/nba.jpeg" alt="nba" />
+                    <p>nba</p>
+                </div>
+                <div class="story">
+                    <img src="assets/netflix.jpeg" alt="netflix" />
+                    <p>netflix</p>
+                </div>
+                <div class="story">
+                    <img src="assets/openai.jpg" alt="openai" />
+                    <p>openai</p>
+                </div>
+                <div class="story">
+                    <img src="assets/spotify.jpg" alt="spotify" />
+                    <p>spotify</p>
+                </div>
+                <div class="story">
+                    <img src="assets/tiktok.jpg" alt="tiktok" />
+                    <p>tiktok</p>
+                </div>
+            </div>
+
+
+            <!-- Posts -->
+            <div id="feed" class="posts"></div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="rightbar">
+            <div id="rightProfileSection" style="display: none; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <img id="rightProfilePic" src="assets/profile-logo.jpeg" alt="Profile"
+                     style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;" />
+                <span id="userEmail"></span>
+              </div>
+              
+              
+          
+            <!-- Auth Form -->
+            <div id="auth">
+              <input type="email" id="email" placeholder="Email" />
+              <input type="password" id="password" placeholder="Password" />
+              <button id="loginBtn">Login</button>
+              <button id="signupBtn">Sign Up</button>
+            </div>
+          
+            <!-- User Info Section -->
+            <div id="userSection" style="display: none;">
+              <p id="userInfo"></p>
+            </div>
+          
+            <div class="suggestions">
+              <div class="suggestions-header">
+                <h4>Suggested for you</h4>
+                <a href="#">See All</a>
+              </div>
+          
+              <div class="suggestion">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="matt.stone" class="suggestion-pic" />
+                <div class="suggestion-info">
+                  <strong>matt.stone</strong>
+                  <span>Followed by izzy.webb and 3 more</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+              </div>
+          
+              <div class="suggestion">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="sara.w" class="suggestion-pic" />
+                <div class="suggestion-info">
+                  <strong>sara.w</strong>
+                  <span>Followed by tasha_design and 8 more</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+              </div>
+          
+              <div class="suggestion">
+                <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="david_mn" class="suggestion-pic" />
+                <div class="suggestion-info">
+                  <strong>david_mn</strong>
+                  <span>Followed by camcoder.dev and 6 more</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+              </div>
+          
+              <div class="suggestion">
+                <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="kate.berry" class="suggestion-pic" />
+                <div class="suggestion-info">
+                  <strong>kate.berry</strong>
+                  <span>Followed by nora.fx and 10 more</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+              </div>
+          
+              <div class="suggestion">
+                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="jordan_life" class="suggestion-pic" />
+                <div class="suggestion-info">
+                  <strong>jordan_life</strong>
+                  <span>Followed by tim.visual and 7 more</span>
+                </div>
+                <button class="follow-btn">Follow</button>
+              </div>
+            </div>
+          
+            <div>
+              <div class="footer-links">
+                <p>About • Help • Press • API • Jobs</p>
+                <p>Privacy • Terms • Locations • Language</p>
+                <p>Meta Verified</p>
+                <br />
+                <p>© 2025 Instagram from Meta</p>
+              </div>
+            </div>
+          </aside>
+          
+    </div>
+    <!-- Firebase Config -->
+    <script src="./config.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
