@@ -148,9 +148,8 @@ function loadFeed() {
                     </div>
                     <div class="post-more">⋯</div>
                 </div>
-                <img class="post-image" src="${
-                    post.imageUrl ||
-                    "https://source.unsplash.com/random/600x600/?city"
+                <img class="post-image" src="${post.imageUrl ||
+                "https://source.unsplash.com/random/600x600/?city"
                 }" alt="Post" sizes="(max-width: 500px) 100vw, 468px">
                 <div class="post-actions">
                     <div class="post-actions-left">
