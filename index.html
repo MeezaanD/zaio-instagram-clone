@@ -174,9 +174,17 @@
           </aside>
           
     </div>
-    <!-- Firebase Config -->
-    <script src="./config.js"></script>
-    <script type="module" src="./firebase.js"></script>
+<!--     <!-- Firebase Config -->
+   <!-- <script src="./config.js"></script> -->
+   <!-- <script type="module" src="./firebase.js"></script> -->
+    <script src="./firebase-config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+    <!-- add other firebase scripts as needed -->
+    <script>
+    firebase.initializeApp(window.firebaseConfig);
+</script>
+
     <script type="module" src="./app.js"></script>
 </body>
 
