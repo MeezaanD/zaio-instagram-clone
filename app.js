@@ -1,19 +1,12 @@
-// import { auth, db } from "./firebase.js";
-const auth = window.auth;
-const db = window.db;
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { getFirestore, collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import {
-    collection,
-    onSnapshot,
-    query,
-    orderBy,
-} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+const firebaseConfig = window.firebaseConfig;
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 const email = document.getElementById("email");
 const password = document.getElementById("password");
@@ -111,12 +104,8 @@ onAuthStateChanged(auth, (user) => {
         if (profileUsername) profileUsername.textContent = "Guest";
         if (feed) feed.innerHTML = "";
 
-        document
-            .getElementById("leftProfileSection")
-            ?.style?.setProperty("display", "none");
-        document
-            .getElementById("rightProfileSection")
-            ?.style?.setProperty("display", "none");
+        document.getElementById("leftProfileSection")?.style?.setProperty("display", "none");
+        document.getElementById("rightProfileSection")?.style?.setProperty("display", "none");
 
         const profileLink = document.getElementById("profileLink");
         if (profileLink) {
@@ -127,10 +116,16 @@ onAuthStateChanged(auth, (user) => {
 });
 
 function loadFeed() {
+    if (!db) {
+        console.error("Firestore 'db' is not initialized.");
+        return;
+    }
+
     const postsQuery = query(
         collection(db, "posts"),
         orderBy("createdAt", "desc")
     );
+
     onSnapshot(postsQuery, (snapshot) => {
         if (!feed) return;
 
@@ -184,7 +179,7 @@ function loadFeed() {
 const isLoggedIn = true;
 const profileLink = document.getElementById("profileLink");
 
-if (isLoggedIn) {
+if (isLoggedIn && profileLink) {
     profileLink.innerHTML = `
         <img src="assets/profile-logo.jpeg" alt="Profile" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; margin-right: 8px;" />
         Profile
