@@ -1,4 +1,7 @@
-import { auth, db } from "./firebase.js";
+// import { auth, db } from "./firebase.js";
+const auth = window.auth;
+const db = window.db;
+
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,

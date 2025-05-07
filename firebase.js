@@ -8,10 +8,8 @@
 // export const db = getFirestore(app);
 // export const storage = getStorage(app);
 
-
-// Initialize Firebase with window.firebaseConfig
 firebase.initializeApp(window.firebaseConfig);
 
-// Optional: Initialize services
-const auth = firebase.auth();
-const db = firebase.firestore();
+window.auth = firebase.auth();
+window.db = firebase.firestore();
+
